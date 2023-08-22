@@ -77,7 +77,7 @@ function setup() {
 
 function draw() {
   background("#242A43");
-  image(wc, width / 2, height / 2, windowWidth, windowHeight);
+  //image(wc, width / 2, height / 2, windowWidth, windowHeight);
   // console.log(wc);
   critter.position.x = mouseX;
   critter.position.y = mouseY;
