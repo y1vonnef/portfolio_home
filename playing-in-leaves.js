@@ -166,6 +166,7 @@ function setup() {
     random(width / 6, (5 * width) / 6),
     random(height / 6, (5 * height) / 6)
   );
+  console.log("im here");
   mechanical_arm.addImage(imgArm);
   mechanical_arm.setCollider("circle", -2, 2, 55);
   //scale affects the size of the collider
