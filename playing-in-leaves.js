@@ -5,17 +5,39 @@
 let l1;
 let l2;
 let l3;
-let imgC, imgl1, imgl2, imgl3;
+let imgC,
+  imgl1,
+  imgl2,
+  imgl3,
+  imgBrain,
+  imgArt,
+  imgCoding,
+  imgEarth,
+  imgGame,
+  imgArm;
 let critter;
 let leaf1;
-let wc;
+let leaf2;
+let leaf3;
+let brain;
+let art;
+let coding;
+let earth;
+let game;
+let mechanical_arm;
 
 function preload() {
   imgC = loadImage("critter.png");
   imgl1 = loadImage("leaf1.png");
   imgl2 = loadImage("leaf2.png");
   imgl3 = loadImage("leaf3.png");
-  wc = loadImage("wordcloud.png");
+  //wc = loadImage("wordcloud.png");
+  imgBrain = loadImage("brain.png");
+  imgArt = loadImage("art.png");
+  imgCoding = loadImage("coding.png");
+  imgEarth = loadImage("earth.png");
+  imgGame = loadImage("game.png");
+  imgArm = loadImage("mechanical-arm.png");
 }
 
 function setup() {
@@ -30,9 +52,12 @@ function setup() {
   l3 = new Group();
 
   for (var i = 0; i < 20; i++) {
-    leaf1 = createSprite(random(width / 6, 5 * width / 6), random(height / 6, 5 * height / 6));
+    leaf1 = createSprite(
+      random(width / 6, (5 * width) / 6),
+      random(height / 6, (5 * height) / 6)
+    );
     leaf1.addImage(imgl1);
-    leaf1.setCollider('circle', -2, 2, 55);
+    leaf1.setCollider("circle", -2, 2, 55);
     // leaf1.setSpeed(random(.1, .2), random(.1, 20));
 
     //scale affects the size of the collider
@@ -44,9 +69,12 @@ function setup() {
   }
 
   for (var i = 0; i < 20; i++) {
-    leaf3 = createSprite(random(width / 6, 5 * width / 6), random(height / 6, 5 * height / 6));
+    leaf3 = createSprite(
+      random(width / 6, (5 * width) / 6),
+      random(height / 6, (5 * height) / 6)
+    );
     leaf3.addImage(imgl3);
-    leaf3.setCollider('circle', -2, 2, 55);
+    leaf3.setCollider("circle", -2, 2, 55);
     // leaf1.setSpeed(random(.1, .2), random(.1, 20));
 
     //scale affects the size of the collider
@@ -58,9 +86,12 @@ function setup() {
   }
 
   for (var i = 0; i < 20; i++) {
-    leaf2 = createSprite(random(width / 6, 5 * width / 6), random(height / 6, 5 * height / 6));
+    leaf2 = createSprite(
+      random(width / 6, (5 * width) / 6),
+      random(height / 6, (5 * height) / 6)
+    );
     leaf2.addImage(imgl2);
-    leaf2.setCollider('circle', -2, 2, 55);
+    leaf2.setCollider("circle", -2, 2, 55);
     // leaf1.setSpeed(random(.1, .2), random(.1, 20));
 
     //scale affects the size of the collider
@@ -71,9 +102,78 @@ function setup() {
     l2.add(leaf2);
   }
 
+  brain = createSprite(
+    random(width / 6, (5 * width) / 6),
+    random(height / 6, (5 * height) / 6)
+  );
+  brain.addImage(imgBrain);
+  brain.setCollider("circle", -2, 2, 55);
+  //scale affects the size of the collider
+  brain.scale = random(0.3, 0.3);
+  //mass determines the force exchange in case of bounce
+  brain.mass = brain.scale;
+  l2.add(brain);
+
+  art = createSprite(
+    random(width / 6, (5 * width) / 6),
+    random(height / 6, (5 * height) / 6)
+  );
+  art.addImage(imgArt);
+  art.setCollider("circle", -2, 2, 55);
+  //scale affects the size of the collider
+  art.scale = random(0.4, 0.4);
+  //mass determines the force exchange in case of bounce
+  art.mass = art.scale;
+  l2.add(art);
+
+  coding = createSprite(
+    random(width / 6, (5 * width) / 6),
+    random(height / 6, (5 * height) / 6)
+  );
+  coding.addImage(imgCoding);
+  coding.setCollider("circle", -2, 2, 55);
+  //scale affects the size of the collider
+  coding.scale = random(0.2, 0.2);
+  //mass determines the force exchange in case of bounce
+  coding.mass = coding.scale;
+  l2.add(coding);
+
+  earth = createSprite(
+    random(width / 6, (5 * width) / 6),
+    random(height / 6, (5 * height) / 6)
+  );
+  earth.addImage(imgEarth);
+  earth.setCollider("circle", -2, 2, 55);
+  //scale affects the size of the collider
+  earth.scale = random(0.1, 0.1);
+  //mass determines the force exchange in case of bounce
+  earth.mass = earth.scale;
+  l2.add(earth);
+
+  game = createSprite(
+    random(width / 6, (5 * width) / 6),
+    random(height / 6, (5 * height) / 6)
+  );
+  game.addImage(imgGame);
+  game.setCollider("circle", -2, 2, 55);
+  //scale affects the size of the collider
+  game.scale = random(0.4, 0.4);
+  //mass determines the force exchange in case of bounce
+  game.mass = game.scale;
+  l2.add(game);
+
+  mechanical_arm = createSprite(
+    random(width / 6, (5 * width) / 6),
+    random(height / 6, (5 * height) / 6)
+  );
+  mechanical_arm.addImage(imgArm);
+  mechanical_arm.setCollider("circle", -2, 2, 55);
+  //scale affects the size of the collider
+  mechanical_arm.scale = random(0.4, 0.4);
+  //mass determines the force exchange in case of bounce
+  mechanical_arm.mass = mechanical_arm.scale;
+  l2.add(mechanical_arm);
 }
-
-
 
 function draw() {
   background("#242A43");
@@ -88,7 +188,6 @@ function draw() {
   // l2.displace(l2);
   // l3.displace(l3);
   l2.displace(l3);
-
 
   //all sprites bounce at the screen edges
   for (var i = 0; i < allSprites.length; i++) {
@@ -117,14 +216,13 @@ function draw() {
     critter.displace(l1[i]);
   }
   drawSprites();
-  for (var i = 0; i < 20; i++) {
+  for (var i = 0; i < 26; i++) {
     critter.displace(l2[i]);
   }
   for (var i = 0; i < 20; i++) {
     critter.displace(l3[i]);
   }
   drawSprites();
-
 }
 
 function windowResized() {
